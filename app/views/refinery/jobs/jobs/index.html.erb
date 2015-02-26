@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="content">
+      <% content_for :body_content_title do %>
+        <span><%= t('.current_open_positions') %></span>
+      <% end %>
+      <%= render '/refinery/page_image' %> 
+      <% content_for :body do %>
+        <% if @jobs.any? %>
+          <% @jobs.each do |job| %>
+          <div class="media blog-entry">
+            <div class="pull-left">
+              <%= link_to image_tag('logo.png'), refinery.jobs_job_url(job) %>
+            </div>
+              <div class="media-body">
+                <div class="blog-entry-content">
+                  <div class="category"><%= raw(job.hours) %></div>
+                  <h2><%= link_to job.title, refinery.jobs_job_url(job) %></h2>
+                  <div class="date"><%= raw(job.employment_date) %></div>
+                  <div class="content">
+                    <%= strip_tags(job.description).truncate(200) %>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <%= t('.no_open_positions') %>
+        <% end %>
+        <h1></h1>
+        <p class="text-center"><strong>Discover your talents with atrain!</strong></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render :partial => "/refinery/content_page" %>

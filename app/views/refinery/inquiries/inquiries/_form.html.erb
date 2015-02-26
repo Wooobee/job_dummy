@@ -1,0 +1,45 @@
+<%= form_for [refinery, :inquiries, inquiry] do |f| %>
+  <%= render :partial => "/refinery/admin/error_messages",
+             :locals => {
+               :object => inquiry,
+               :include_object_name => true
+             } %>
+  <div class="form-group">
+    <%= f.required_label :name, :class => 'col-md-2 control-label' %>
+     <div class="col-md-10">
+    <%= f.text_field :name, :class => 'form-control input-lg', :required => 'required',
+      :placeholder => (t('name', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') if Refinery::Inquiries.show_placeholders) %>
+      </div>
+  </div>
+  <div class="form-group">
+    <%= f.required_label :email, :class => 'col-md-2 control-label' %>
+     <div class="col-md-10">
+    <%= f.email_field :email, :class => 'form-control input-lg', :required => 'required',
+      :placeholder => (t('email', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') if Refinery::Inquiries.show_placeholders) %>
+      </div>
+  </div>
+
+  <% if Refinery::Inquiries.show_phone_number_field %>
+    <div class="form-group">
+      <%= f.label :phone, :class => 'col-md-2 control-label' %>
+       <div class="col-md-10">
+      <%= f.text_field :phone, :class => 'form-control input-lg',
+        :placeholder => (t('phone', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') if Refinery::Inquiries.show_placeholders) %>
+        </div>
+    </div>
+  <% end %>
+
+  <div class='form-group'>
+    <%= f.required_label :message, :class => 'col-md-2 control-label' %>
+     <div class="col-md-10">
+    <%= f.text_area :message, :rows => 8, :required => 'required', :class => 'form-control',
+      :placeholder => (t('message', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') if Refinery::Inquiries.show_placeholders) %>
+      </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+    <%= f.submit t('.send'), :class => "btn btn-primary btn-lg" %>
+    <%= link_to t('.privacy_policy'), "/pages/privacy-policy", :id => "privacy_link" if Refinery::Inquiries.show_contact_privacy_link %>
+    </div>
+  </div>
+<% end %>

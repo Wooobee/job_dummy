@@ -1,0 +1,19 @@
+<!-- Breadcrumbs - START -->
+<% unless @page.nil? %>
+	<% unless @page.title == 'Home' %>
+		<div class="breadcrumbs-container">
+		    <div class="container">
+		        <ol class="breadcrumb">
+				      	<li><%= link_to "Home", refinery.root_url(:only_path => true) %></li> 
+				        	<% [@page.ancestors, @page].flatten.collect do |p| %>
+								<% if p.id == @page.id %>
+									<li class="active"><%= p.title %></li>
+								<% else %>
+									<li><%= link_to p.title, p.url %> <%= "&gt;".html_safe %></li>
+								<% end %>       	
+				          	<% end %>
+		        </ol>
+		    </div>
+		</div>
+	<% end %> 
+<% end %>

@@ -1,0 +1,91 @@
+<% content_for :body_content_title do %>
+
+<% end %>
+<% content_for :body do %>
+<div class="row">
+          <div class="col-md-9">
+            <div class="blog-entry">
+              <div class="blog-entry-content no-border">
+                <div class="category"><%= @job.hours %></div>
+                <h1><span><%= @job.title %></span></h1>
+                <div class="date"><%= @job.employment_date %></div>
+                <div class="content">
+                  <p>
+    <% unless @job.fill.blank? %>
+      <strong><%= t('.fill') %></strong> : <%= @job.fill %>
+    <% end %>
+
+    <% unless @job.ref.blank? %>
+      <br /><strong><%= t('.ref') %></strong> : <%= @job.ref %>
+    <% end %>
+  </p>
+
+  <h2><%= t('.description')%></h2>
+  <%= @job.description.html_safe %>
+
+  <h2><%= t('.requirements_and_work_conditions') %></h2>
+  <p>
+    <% unless @job.education.blank? %>
+      <strong><%= t('.education') %></strong> : <%= @job.education %>
+    <% end %>
+
+    <% unless @job.experience.blank? %>
+      <br /><strong><%= t('.experience') %></strong> : <%= @job.experience %>
+    <% end %>
+
+    <% unless @job.skills.blank? %>
+      <br /><strong><%= t('.skills') %></strong> : <%= @job.skills %>
+    <% end %>
+
+    <% unless @job.languages.blank? %>
+      <br /><strong><%= t('.languages') %></strong> : <%= @job.languages %>
+    <% end %>
+
+    <% unless @job.salary.blank? %>
+      <br /><strong><%= t('.salary') %></strong> : <%= @job.salary %>
+    <% end %>
+
+    <% unless @job.hours.blank? %>
+      <br /><strong><%= t('.hours') %></strong> : <%= @job.hours %>
+    <% end %>
+
+    <% unless @job.employment_terms.blank? %>
+      <br /><strong><%= t('.employment_terms') %></strong> : <%= @job.employment_terms %>
+    <% end %>
+
+    <% unless @job.length.blank? %>
+      <br /><strong><%= t('.length') %></strong> : <%= @job.length %>
+    <% end %>
+
+    <% unless @job.employment_date.blank? %>
+      <br /><strong><%= t('.employment_date') %></strong> : <%= @job.employment_date %>
+    <% end %>
+
+    <% unless @job.employment_terms.blank? %>
+      <br /><strong><%= t('.contact') %></strong> : <%= @job.contact %>
+    <% end %>
+  </p>
+
+  
+
+  <p><%= link_to t('.back_to_list'), refinery.jobs_jobs_path, class: "btn btn-primary" %></p>
+
+  <h1></h1>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <%= render :partial => "/refinery/jobs/job_applications/form" %>
+          </div>
+        </div>
+
+
+  
+  <p class="text-center"><strong>Discover your talents with atrain!</strong></p>
+<% end %>
+
+
+
+<%= render :partial => "/refinery/content_page", :locals => {:hide_sections => [:body_content_title]} %>

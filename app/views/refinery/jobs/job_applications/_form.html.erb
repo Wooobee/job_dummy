@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-sm-12 col-md-12">
+    <div class="thumbnail info-thumbnail background-lead color-white">
+      <div class="caption">
+        <h3><span class="fa fa-user"></span> Registration</h3>
+        <%= form_for [refinery, :jobs, @job, @job_application], :html => { :multipart => true }, :role => "form" do |f| %>
+
+          <%= render '/refinery/admin/error_messages', {:object => @job_application, :include_object_name => true} %>
+
+          <h2><%= t('.job_application_for_position') %></h2>
+
+          <div class='form-group'>
+            <%= f.label :name %>
+            <%= f.text_field :name, :class => "form-control" %>
+          </div>
+
+          <div class='form-group'>
+            <%= f.label :email %>
+            <%= f.text_field :email, :class => "form-control" %>
+          </div>
+
+          <div class='form-group'>
+            <%= f.label :phone %>
+            <%= f.text_field :phone, :class => "form-control" %>
+          </div>
+
+          <div class='form-group'>
+            <%= f.label :cover_letter %>
+            <%= f.text_area :cover_letter, :class => "form-control" %>
+          </div>
+
+          <div class='form-group'>
+            <%= f.label :resume %>
+            <%= f.file_field :resume, :class => "form-control" %>
+          </div>
+
+          <%= f.submit t('.apply'), :class => "btn btn-default" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

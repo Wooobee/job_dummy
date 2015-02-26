@@ -1,0 +1,87 @@
+<div id="nav-wrapper" class="background-white color-black">
+  <nav id="mainMenu" class="navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar background-lead"></span>
+          <span class="icon-bar background-lead"></span>
+          <span class="icon-bar background-lead"></span>
+        </button>
+        <%= link_to image_tag("logo.png", alt: Refinery::Core.site_name), refinery.root_path, class: "navbar-brand" %>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+      	<%= Refinery::Pages::MenuPresenter.new(refinery_menu_pages, self).to_html %>
+      </div><!-- /.navbar-collapse -->
+    </div>
+  </nav>
+
+  <!-- Responsive slider - START -->
+  <% if @page.title == 'Home' %>
+	  <div class="responsive-slider-parallax" data-spy="responsive-slider" data-parallax="true" data-parallax-direction="-1" data-transitiontime="1000" data-autoplay="true">
+	    <div class="slides-container" data-group="slides">
+	      <ul>
+	        <li>
+	          <div class="slide-body" data-group="slide">
+	            <div class="container">
+	              <div class="wrapper">
+	                <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="0" data-length="300">
+	                  <h2>Neat theme</h2>
+	                  <p class="sub text-left" data-animate="slideAppearLeftToRight" data-delay="300" data-length="300"><span>Clean and modern design</span></p>
+	                  <p class="sub text-left" data-animate="slideAppearLeftToRight" data-delay="500" data-length="300"><span>Lightweight</span></p>
+	                  <p class="sub text-left" data-animate="slideAppearLeftToRight" data-delay="700" data-length="300"><span>Standards compliant</span></p>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </li>
+	        <li>
+	          <div class="slide-body" data-group="slide">
+	            <div class="container">
+	              <div class="wrapper">
+	                <div class="caption header text-center" data-animate="slideAppearUpToDown" data-delay="0" data-length="300">
+	                  <h2>Twitter Boostrap</h2>
+	                  <p class="sub" data-animate="slideAppearDownToUp" data-delay="300" data-length="300"><span>Compatible with version 3</span></p>
+	                  <p class="sub" data-animate="slideAppearDownToUp" data-delay="500" data-length="300"><span>Perfectly compatible with grid system</span></p>
+	                  <p class="sub" data-animate="slideAppearDownToUp" data-delay="700" data-length="300"><span>Bootstrap compatible Slider and Calendar plugins</span></p>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </li>
+	        <li>
+	          <div class="slide-body" data-group="slide">
+	            <div class="container">
+	              <div class="wrapper">
+	                <div class="caption header text-right" data-animate="slideAppearDownToUp" data-delay="0" data-length="300">
+	                  <h2>Html <span style="font-weight: 300"><span class="color-alizarin">c</span><span class="color-carrot">o</span><span class="color-sun-flower">l</span><span class="color-emerald">o</span><span class="color-peter-river">r</span></span> classes</h2>
+	                  <p class="sub" data-animate="slideAppearUpToDown" data-delay="300" data-length="300"><span>"Flat UI" colors palette</span></p>
+	                  <p class="sub" data-animate="slideAppearUpToDown" data-delay="500" data-length="300"><span>Made to modify any layout element</span></p>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </li>
+	      </ul>
+	    </div>
+	    <a class="slider-control left hidden-xs hidden-sm" href="#" data-jump="prev"><i class="fa fa-angle-left"></i></a>
+	    <a class="slider-control right hidden-xs hidden-sm" href="#" data-jump="next"><i class="fa fa-angle-right"></i></a>
+	    <div class="pages-wrapper background-black">
+	      <ol class="pages">
+	        <li><a data-jump-to="1">1</a></li>
+	        <li><a data-jump-to="2">2</a></li>
+	        <li><a data-jump-to="3">3</a></li>
+	      </ol>
+	    </div>
+	  </div>
+  <%end%>
+  <!-- Responsive slider - END -->
+</div>
+
+
+
+
